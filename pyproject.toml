@@ -8,6 +8,8 @@ license = "GPL-3.0-or-later"
 [tool.poetry.dependencies]
 python = "^3.8"
 typer = "^0.3.2"
+pypdf2 = "^1.26.0"
+pydantic = "^1.6.1"
 
 [tool.poetry.dev-dependencies]
 
