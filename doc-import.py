@@ -39,14 +39,19 @@ def metadata(path: Path) -> Metadata:
         info = reader.getDocumentInfo()
         page_count = reader.getNumPages()
 
-    typer.echo(info, err=True)
+    typer.echo(f'PDF metadata: {info}', err=True)
 
-    title = info.title
-    if title is None:
-        title = pdftitle.get_title_from_file(str(path))
+    # Decide which possible title to use:
+    # - the title annotated in the PDF metadata
+    # - the title read by pdftitle (largest text on the first page)
+    # - the file name without extension
+    pdftitle_title = pdftitle.get_title_from_file(str(path))
+    typer.echo(f'Title according to pdftitle: {pdftitle_title}')
 
-        if title is None:
-            title = path.name
+    title_candidates = [t for t in [info.title, pdftitle_title, path.stem] if t is not None]
+
+    # The current heuristic is just to use the longest of the three candidates
+    title = max(title_candidates, key=len)
 
     return Metadata(
         title=title,
