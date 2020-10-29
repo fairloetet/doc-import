@@ -46,7 +46,7 @@ def metadata(path: Path) -> Metadata:
     # - the title read by pdftitle (largest text on the first page)
     # - the file name without extension
     pdftitle_title = pdftitle.get_title_from_file(str(path))
-    typer.echo(f'Title according to pdftitle: {pdftitle_title}')
+    typer.echo(f'Title according to pdftitle: {pdftitle_title}', err=True)
 
     title_candidates = [t for t in [info.title, pdftitle_title, path.stem] if t is not None]
 
