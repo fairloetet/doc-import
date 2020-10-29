@@ -5,6 +5,7 @@ Main module of the document importer.
 from pathlib import Path
 from typing import Optional
 
+import pdftitle
 import pydantic
 import typer
 from PyPDF2.pdf import PdfFileReader
@@ -42,7 +43,10 @@ def metadata(path: Path) -> Metadata:
 
     title = info.title
     if title is None:
-        title = path.name
+        title = pdftitle.get_title_from_file(str(path))
+
+        if title is None:
+            title = path.name
 
     return Metadata(
         title=title,
