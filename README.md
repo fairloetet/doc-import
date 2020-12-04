@@ -1,5 +1,24 @@
 # doc-import
-import documents from filesystem into wordpress pods
+
+Extract information and metadata from PDF sources. Later, the tool will automatically import them into a database via a
+REST API.
+
+## Requirements
+
+- Python 3.8+
+- At the moment, Linux systems are supported, but MacOS and Windows might work, too
+
+## Get Started
+
+To get started developing the tool on Linux (MacOS should work, too), run the included setup script:
+
+```bash
+$ ./setup.sh
+```
+
+This will download and install the required dependencies, including the Python dependency manager
+[Poetry](https://python-poetry.org/), all required libraries, and the [spaCy](https://spacy.io) model for English,
+which is used to process the documents.
 
 ## Quellen
 

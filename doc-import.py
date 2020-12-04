@@ -1,9 +1,11 @@
+#!/usr/bin/env python
+
 """
 Main module of the document importer.
 """
 from collections import Counter
 from pathlib import Path
-from typing import Optional, List, Iterable
+from typing import Optional, List
 
 import pdftitle
 import pydantic
