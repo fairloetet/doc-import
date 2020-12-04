@@ -11,6 +11,8 @@ typer = "^0.3.2"
 pypdf2 = "^1.26.0"
 pydantic = "^1.6.1"
 pdftitle = "^0.8"
+"pdfminer.six" = "20200726"
+spacy-nightly = "^3.0.0-rc.2"
 
 [tool.poetry.dev-dependencies]
 
